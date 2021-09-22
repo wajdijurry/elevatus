@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{$cssDir}/style.css">
+</head>
+<body>
+    <form class="form-inline centered" method="post">
+        <div n:if="$error" class="alert alert-danger" role="alert">
+            {$error|capitalize}
+        </div>
+
+        <div n:if="$result" class="alert alert-success" role="alert">
+            Number of operations to perform: <strong>{$result|capitalize}</strong>
+        </div>
+
+        <h4 class="col-md-12">Calculate Hamming / Levenshtein distance of two inputs</h4>
+
+        <div class="text-center">
+            <input class="form-control" id="first_input" name="first_input" placeholder="First input" type="text" value="{$firstInput}" required />
+            <input class="form-control" id="second_input" name="second_input" placeholder="Second input" type="text" value="{$secondInput}" required />
+
+            <select class="form-control" name="operation" required>
+                <option selected>Method...</option>
+                <option value="hamming">Hamming</option>
+                <option value="levenshtein">Levenshtein</option>
+            </select>
+
+            <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>
